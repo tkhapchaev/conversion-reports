@@ -65,7 +65,7 @@ http://localhost:8080/api/report-requests/{requestId}
 dotnet test
 ```
 
-## Local services
+## Сервисы
 
 - API: `http://localhost:8080`
 - Swagger: `http://localhost:8080/swagger`
