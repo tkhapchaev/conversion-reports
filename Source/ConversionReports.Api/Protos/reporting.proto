@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option csharp_namespace = "ConversionReports.Api.Grpc";
+
+package reporting;
+
+service Reporting {
+	rpc GetReportResult (GetReportResultRequest) returns (GetReportResultReply);
+}
+
+message GetReportResultRequest {
+	string request_id = 1;
+}
+
+enum ReportState {
+	REPORT_STATE_UNSPECIFIED = 0;
+	PENDING = 1;
+	PROCESSING = 2;
+	COMPLETED = 3;
+	FAILED = 4;
+	NOT_FOUND = 5;
+}
+
+message GetReportResultReply {
+	string request_id = 1;
+	string user_id = 2;
+	ReportState state = 3;
+	double conversion_ratio = 4;
+	int32 payments_count = 5;
+	string error = 6;
+	string created_at_utc = 7;
+	string completed_at_utc = 8;
+}
